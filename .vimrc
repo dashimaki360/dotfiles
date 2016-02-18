@@ -1,56 +1,96 @@
-"viとの互換性をとらない)
-set nocompatible
-" 自動認識させる改行コードを指定する
-set fileformats=unix,dos
-" バックアップをとる
-" 逆は [ set nobackup ]
-set backup
-" バックアップを作るディレクトリを指定する
-set backupdir=~/backup
-" 検索履歴を50個残す
-set history=50
-" 検索時に大文字小文字を区別しない
-set ignorecase
-" 検索語に大文字を混ぜると検索時に大文字を区別する
-set smartcase
-" 検索語にマッチした単語をハイライトする
-" 逆は [ set nohlsearch ]
-set hlsearch
-" インクリメンタルサーチを使う ( 検索語を入れている途中から随時マッチする文字列の検索を開始)
-" 逆は [ set noincsearch ]
+syntax enable
+
+set number
+set ruler
+set list
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:<
 set incsearch
-" 行番号を表示する
-" 逆は [ set nonumber ]
-set number
-" 改行 ( $ ) やタブ ( ^I ) を可視化する
-set list
-" 括弧入力時に対応する括弧を強調する
+set hlsearch
+set nowrap
 set showmatch
-" 構文ごとに色分け表示する
-" 逆は [ syntax off ]
-syntax on
-" [ syntax on ] の場合のコメント文の色を変更する
-highlight Comment ctermfg=LightCyan
-" ウィンドウ幅で行を折り返す
-" 逆は [ set nowrap ]
-set wrap
-
-set showmatch
-set matchtime=1
-
-set number
-set title
-set ambiwidth=double
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set smartindent
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set nrformats-=octal
+set whichwrap=h,l
+set nowrapscan
+set ignorecase
+set smartcase
 set hidden
-set history=50
-set virtualedit=block
-set whichwrap=b,s,[,],<,>
-set backspace=indent,eol,start
-set wildmenu
+set history=2000
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set helplang=en
+
+colorscheme desert
+
+nnoremap <Space>w  :<C-u>w<CR>
+nnoremap <Space>q  :<C-u>q<CR>
+nnoremap <Space>Q  :<C-u>q!<CR>
+
+"nnoremap ;  :
+"nnoremap :  ;
+"vnoremap ;  :
+"vnoremap :  ;
+
+nnoremap <Space>h  ^
+nnoremap <Space>l  $
+
+nnoremap k   gk
+nnoremap j   gj
+vnoremap k   gk
+vnoremap j   gj
+nnoremap gk  k
+nnoremap gj  j
+vnoremap gk  k
+vnoremap gj  j
+
+nnoremap <Space>/  *<C-o>
+nnoremap g<Space>/ g*<C-o>
+
+nnoremap <expr> n <SID>search_forward_p() ? 'nzv' : 'Nzv'
+nnoremap <expr> N <SID>search_forward_p() ? 'Nzv' : 'nzv'
+vnoremap <expr> n <SID>search_forward_p() ? 'nzv' : 'Nzv'
+vnoremap <expr> N <SID>search_forward_p() ? 'Nzv' : 'nzv'
+
+function! s:search_forward_p()
+  return exists('v:searchforward') ? v:searchforward : 1
+endfunction
+
+
+nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+
+nnoremap <silent> tt  :<C-u>tabe<CR>
+nnoremap <C-p>  gT
+nnoremap <C-n>  gt
+
+nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
+
+nnoremap Q gq
+
+
+onoremap aa  a>
+onoremap ia  i>
+onoremap ar  a]
+onoremap ir  i]
+onoremap ad  a"
+onoremap id  i"
+
+
+inoremap jk  <Esc>
+
+
+nnoremap gs  :<C-u>%s///g<Left><Left><Left>
+vnoremap gs  :s///g<Left><Left><Left>
+
+
+cnoremap <C-f>  <Right>
+cnoremap <C-b>  <Left>
+cnoremap <C-a>  <C-b>
+cnoremap <C-e>  <C-e>
+cnoremap <C-u> <C-e><C-u>
+cnoremap <C-v> <C-f>a
+
+set clipboard+=unnamed
