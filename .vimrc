@@ -93,5 +93,4 @@ cnoremap <C-e>  <C-e>
 cnoremap <C-u> <C-e><C-u>
 cnoremap <C-v> <C-f>a
 
-set clipboard=unnamed,autoselect
-set clipboard=unnamedplus
+set clipboard+=unnamed
