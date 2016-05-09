@@ -93,6 +93,7 @@ nnoremap ZQ <Nop>
 "jk to esc very good cool XD
 inoremap jk  <Esc>
 
+<<<<<<< HEAD
 "use clipboard
 set clipboard=unnamed,autoselect
 set clipboard=unnamedplus
