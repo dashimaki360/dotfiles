@@ -127,11 +127,16 @@ nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
 
 
 """""""eend Unte setting""""""""""""""
+""python setting""
+autocmd BufNewFile,BufRead *.py nnoremap <C-b> :!python %<CR>
+
+
 """"""""jedi-vim Setting""""""""""""""""
 "
 "autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first =0
+let g:jedi#show_call_signatures=2
 "let g:jedi#completions_enabled = 0
 "let g:jedi#auto_vim_configuration = 0
 "if !exists('g:neocomplete#force_omni_input_patterns')
