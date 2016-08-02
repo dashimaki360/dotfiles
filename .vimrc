@@ -18,7 +18,7 @@ NeoBundle 'Shougo/unite.vim'
 " Unite.vimで最近使ったファイルを表示できるようにする
 NeoBundle 'Shougo/neomru.vim'
 " hokan python
-"NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 "neocomplete auto complete
 "NeoBundle 'Shougo/neocomplete.vim'
 "systax errorr check
@@ -98,12 +98,12 @@ set clipboard=unnamed,autoselect
 set clipboard=unnamedplus
 
 "gtags short cut
-nnoremap <C-g> :Gtags 
-nnoremap <C-h> :Gtags -f %<CR>
-nnoremap <C-j> :GtagsCursor<CR>
-nnoremap <C-k> :Gtags -r <C-r><C-w><CR>
-nnoremap <C-n> :cn<CR>
-nnoremap <C-p> :cp<CR>
+"nnoremap <C-g> :Gtags 
+"nnoremap <C-h> :Gtags -f %<CR>
+"nnoremap <C-j> :GtagsCursor<CR>
+"nnoremap <C-k> :Gtags -r <C-r><C-w><CR>
+"nnoremap <C-n> :cn<CR>
+"nnoremap <C-p> :cp<CR>
 """""""end common setting""""""""""""""
 """""""Unite setting"""""""""""""""""""
 " The prefix key.
@@ -115,7 +115,7 @@ let g:unite_source_history_yank_enable =1
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-nnoremap <silent> [unite]u :<C-u>Unite<Space>
+"nnoremap <silent> [unite]u :<C-u>Unite<Space>
 "nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
 nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
@@ -130,6 +130,8 @@ nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
 """"""""jedi-vim Setting""""""""""""""""
 "
 "autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first =0
 "let g:jedi#completions_enabled = 0
 "let g:jedi#auto_vim_configuration = 0
 "if !exists('g:neocomplete#force_omni_input_patterns')
