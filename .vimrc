@@ -19,11 +19,13 @@
  " My Bundles here:
  " Refer to |:NeoBundle-examples|.
  " Note: You don't set neobundle setting in .gvimrc!
+ "
  NeoBundle 'Shougo/unite.vim'
  NeoBundle 'Shougo/neomru.vim'
  NeoBundle 'davidhalter/jedi-vim'
  NeoBundle 'Shougo/neocomplete.vim'
  NeoBundle 'tpope/vim-fugitive'
+ NeoBundle "taketwo/vim-ros"
 
  call neobundle#end()
 
@@ -95,7 +97,6 @@ nnoremap ZQ <Nop>
 inoremap jk  <Esc>
 
 "use clipboard
-set clipboard=unnamed,autoselect
 set clipboard=unnamedplus
 
 """""""end common setting""""""""""""""
