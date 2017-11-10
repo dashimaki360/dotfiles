@@ -1,0 +1,14 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+     // フォント サイズをピクセル単位で制御します。
+    "editor.fontSize": 16,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "editor.renderWhitespace": "all",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
+}
