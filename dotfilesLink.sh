@@ -1,11 +1,16 @@
-#! /bin/bash
+#!/bin/bash
 #install vim git etc...
-sudo apt-get install git vim-gnome bash-conpletion curl
+
+set -e
+set -x
+
+sudo apt-get update
+sudo apt-get install -y git vim-gnome curl
 
 #install neobundle
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
-sh ./install.sh
-rm ./install.sh
+#curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+#sh ./install.sh
+#rm ./install.sh
 
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 
