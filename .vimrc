@@ -1,41 +1,14 @@
-"""""""""""""NeoBundle Setting""""""""""""""
- " Note: Skip initialization for vim-tiny or vim-small.
- if 0 | endif
+""""""vim-plug""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
 
- if &compatible
-   set nocompatible               " Be iMproved
- endif
+Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/unite.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'lambdalisue/vim-pyenv'
 
- " Required:
- set runtimepath+=~/.vim/bundle/neobundle.vim/
-
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
-
- " Let NeoBundle manage NeoBundle
- " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
-
- " My Bundles here:
- " Refer to |:NeoBundle-examples|.
- " Note: You don't set neobundle setting in .gvimrc!
- "
- NeoBundle 'Shougo/unite.vim'
- NeoBundle 'Shougo/neomru.vim'
- NeoBundle 'davidhalter/jedi-vim'
- NeoBundle 'Shougo/neocomplete.vim'
- NeoBundle 'tpope/vim-fugitive'
- NeoBundle "taketwo/vim-ros"
-
- call neobundle#end()
-
- " Required:
- filetype plugin indent on
-
- " If there are uninstalled bundles found on startup,
- " this will conveniently prompt you to install them.
- NeoBundleCheck
-"""""""end NeoBundle setting"""""""""""""""""""""""
+call plug#end()
 
 """"""""common setting""""""""""""""""""""""
 syntax enable
@@ -56,8 +29,8 @@ set hidden
 set history=2000
 set autoindent
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set helplang=en
 
 colorscheme desert
@@ -110,35 +83,20 @@ let g:unite_source_history_yank_enable =1
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
 nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-"nnoremap <silent> [unite]u :<C-u>Unite<Space>
-"nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
-"nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-"nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-"nnoremap <silent> ,vr :UniteResume<CR>
 
-"vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+"""""""end Unte setting""""""""""""""
 
-
-"""""""eend Unte setting""""""""""""""
 ""python setting""
 autocmd BufNewFile,BufRead *.py nnoremap <C-b> :!python %<CR>
-
 
 """"""""jedi-vim Setting""""""""""""""""
 "
 "autocmd FileType python setlocal omnifunc=jedi#completions
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#popup_select_first =0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first =0
 "let g:redi#show_call_signatures=2
 "let grjedi#completions_enabled = 0
 "let g:jedi#auto_vim_configuration = 0
-"if !exists('g:neocomplete#force_omni_input_patterns')
-"    let g:neocomplete#force_omni_input_patterns = {}
-"endif
-"
-"g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 "
 " docstringは表示しない
 autocmd FileType python setlocal completeopt-=preview
