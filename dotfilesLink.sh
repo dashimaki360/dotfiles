@@ -15,6 +15,8 @@ git config --global user.name "dashimaki360"
 #curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
 #sh ./install.sh
 #rm ./install.sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mv ~/.vimrc ~/.vimrc.bac
 ln -s ~/dotfiles/.vimrc ~/.vimrc
