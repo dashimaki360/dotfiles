@@ -16,5 +16,8 @@ git config --global user.name "dashimaki360"
 #sh ./install.sh
 #rm ./install.sh
 
+mv ~/.vimrc ~/.vimrc.bac
 ln -s ~/dotfiles/.vimrc ~/.vimrc
+mv ~/.bashrc ~/.bashrc.bac
+ln -s ~/dotfiles/.bashrc ~/.bashrc
 
