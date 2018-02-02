@@ -4,8 +4,8 @@
 set -e
 set -x
 
-sudo apt-get update
-sudo apt-get install -y git vim-gnome curl
+sudo -E apt-get update
+sudo -E apt-get install -y git vim-gnome curl
 
 # git config setting
 git config --global user.email "17.punch@gmail.com"
