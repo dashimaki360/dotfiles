@@ -119,12 +119,12 @@ fi
 #source /opt/ros/kinetic/setup.bash
 
 # pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
+#export PYENV_ROOT=$HOME/.pyenv
+#export PATH=$PYENV_ROOT/bin:$PATH
+#eval "$(pyenv init -)"
 
 # pyenv virtualenv
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # git bash PS1
 function parse_git_branch {
