@@ -19,11 +19,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 if [ -e ~/.vimrc ]; then
-    mv ~/.vimrc ~/.vimrc.bac
+  mv ~/.vimrc ~/.vimrc.bac
 fi
 ln -s ~/dotfiles/.vimrc ~/.vimrc
-
 if [ -e ~/.bashrc ]; then
-    mv ~/.bashrc ~/.bashrc.bac
+  mv ~/.bashrc ~/.bashrc.bac
 fi
 ln -s ~/dotfiles/.bashrc ~/.bashrc
