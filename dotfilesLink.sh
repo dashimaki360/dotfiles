@@ -18,8 +18,12 @@ git config --global user.name "dashimaki360"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mv ~/.vimrc ~/.vimrc.bac
+if [ -e ~/.vimrc ]; then
+    mv ~/.vimrc ~/.vimrc.bac
+fi
 ln -s ~/dotfiles/.vimrc ~/.vimrc
-mv ~/.bashrc ~/.bashrc.bac
-ln -s ~/dotfiles/.bashrc ~/.bashrc
 
+if [ -e ~/.bashrc ]; then
+    mv ~/.bashrc ~/.bashrc.bac
+fi
+ln -s ~/dotfiles/.bashrc ~/.bashrc

@@ -6,7 +6,9 @@ Plug 'Shougo/unite.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'lambdalisue/vim-pyenv'
+Plug 'nvie/vim-flake8'
+Plug 'tpope/vim-fugitive'
+"Plug 'lambdalisue/vim-pyenv'
 
 call plug#end()
 
@@ -92,12 +94,23 @@ autocmd BufNewFile,BufRead *.py nnoremap <C-b> :!python %<CR>
 """"""""jedi-vim Setting""""""""""""""""
 "
 "autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first =0
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_select_first =0
 "let g:redi#show_call_signatures=2
 "let grjedi#completions_enabled = 0
 "let g:jedi#auto_vim_configuration = 0
 "
+let g:jedi#completions_command = "<C-N>"
+
 " docstringは表示しない
 autocmd FileType python setlocal completeopt-=preview
 """""""end jedi-vim setting""""""""""""""
+
+"""""" flake8 setting"""""""""""""""""""
+autocmd BufWritePost *.py call Flake8() 
+autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
+let g:flake8_quickfix_location="topleft" " Quickfixの位置
+let g:flake8_quickfix_height=7 " Quickfixの高さ
+let g:flake8_show_in_gutter=1  " 左端にシンボルを表示
+let g:flake8_show_in_file=1  " ファイル内にマークを表示
+

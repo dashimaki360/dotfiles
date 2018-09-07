@@ -119,12 +119,12 @@ fi
 #source /opt/ros/kinetic/setup.bash
 
 # pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
+#export PYENV_ROOT=$HOME/.pyenv
+#export PATH=$PYENV_ROOT/bin:$PATH
+#eval "$(pyenv init -)"
 
 # pyenv virtualenv
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # git bash PS1
 function parse_git_branch {
@@ -147,3 +147,42 @@ function promps {
     PS1="${GREEN}\W${GREEN}\$(parse_git_branch)${BLUE}\$${WHITE} "
 }
 promps
+
+alias sudo='sudo -E'
+
+# share history between terms
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+export HISTSIZE=9999
+
+
+# added by Anaconda3 installer
+#export PATH="/home/yamaguchi/anaconda3/bin:$PATH"
+# conda alias
+alias sa='source activate'
+
+## CUDA and cuDNN paths
+export PATH=/usr/local/cuda-8.0/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}
+
+# CAFFE<
+#export CAFFE_ROOT=${HOME}/visutool/ssd-sparse-7d203163bb390fa5f0288da9223c54b12598f818/
+#export CAFFE_ROOT=${HOME}/450b-eval/1710_PRDCSG_SSD/caffe/
+#export CAFFE_ROOT=${HOME}/ws/ssd_ws/caffe-SMNET/
+#export CAFFE_ROOT=${HOME}/caffe-SSD-master/
+#export PATH=${CAFFE_ROOT}/build/bin:${PATH}
+#export LD_LIBRARY_PATH=${CAFFE_ROOT}/build/lib:${LD_LIBRARY_PATH}
+#export PYTHONPATH=${CAFFE_ROOT}/python:${PYTHONPATH}
+
+
+# ODD-450 env
+export ODD_HOME=$HOME/450b_eval/ODD-450/
+#export SSD_HOME=$HOME/450b_eval/1710_PRDCSG_SSD/
+#export FISHEYE_HOME=$HOME/450b_eval/fisheye_to_cylind_ckc31/
+#export FISHEYE_HOME=$ODD_HOME/tools/fish_to_cylind/
+
