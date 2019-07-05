@@ -159,30 +159,3 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
-
-
-# added by Anaconda3 installer
-#export PATH="/home/yamaguchi/anaconda3/bin:$PATH"
-# conda alias
-alias sa='source activate'
-
-## CUDA and cuDNN paths
-export PATH=/usr/local/cuda-8.0/bin:${PATH}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}
-
-# CAFFE<
-#export CAFFE_ROOT=${HOME}/visutool/ssd-sparse-7d203163bb390fa5f0288da9223c54b12598f818/
-#export CAFFE_ROOT=${HOME}/450b-eval/1710_PRDCSG_SSD/caffe/
-#export CAFFE_ROOT=${HOME}/ws/ssd_ws/caffe-SMNET/
-#export CAFFE_ROOT=${HOME}/caffe-SSD-master/
-#export PATH=${CAFFE_ROOT}/build/bin:${PATH}
-#export LD_LIBRARY_PATH=${CAFFE_ROOT}/build/lib:${LD_LIBRARY_PATH}
-#export PYTHONPATH=${CAFFE_ROOT}/python:${PYTHONPATH}
-
-
-# ODD-450 env
-export ODD_HOME=$HOME/450b_eval/ODD-450/
-#export SSD_HOME=$HOME/450b_eval/1710_PRDCSG_SSD/
-#export FISHEYE_HOME=$HOME/450b_eval/fisheye_to_cylind_ckc31/
-#export FISHEYE_HOME=$ODD_HOME/tools/fish_to_cylind/
-
